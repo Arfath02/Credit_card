@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/lopi.jpg');
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #00447c;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          }
+          input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          input[type="submit"]:hover {
+            background-color: #0056b3;
+          }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contact Us</h1>
+</header>
+
+<div class="container">
+    <p>Welcome to our website! We are here to assist you with any questions or concerns you may have. Please feel free to reach out to us using the contact information below:</p>
+    
+    <ul class="contact-info">
+        <li><strong>Email:</strong> info@example.com</li>
+        <li><strong>Phone:</strong> +1-234-567-8901</li>
+        <li><strong>Address:</strong> 123 Main Street, City, Country</li>
+    </ul>
+
+    <div class="message-section">
+        <h2>Send Us a Message</h2>
+        <form action="/submit_form_message" method="post">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

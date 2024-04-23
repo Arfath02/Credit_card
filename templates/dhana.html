@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Payment</title>
+<style>
+/* CSS styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Credit Card Payment</h2>
+  <form id="payment-form">
+    <div class="form-group">
+      <label for="card-number">Card Number:</label>
+      <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required aria-label="Credit card number">
+    </div>
+    <div class="form-group">
+      <label for="expiry">Expiry Date:</label>
+      <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required aria-label="Expiry date">
+    </div>
+    <div class="form-group">
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" placeholder="123" maxlength="3" required aria-label="CVV">
+    </div>
+    <button type="submit" aria-label="Pay Now">Pay Now</button>
+  </form>
+  <div id="payment-status" aria-live="polite"></div>
+</div>
+<script>
+// JavaScript code
+document.getElementById('payment-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var cardNumber = document.getElementById('card-number').value;
+  var expiry = document.getElementById('expiry').value;
+  var cvv = document.getElementById('cvv').value;
+
+  // Example validation - You should implement your own validation logic
+  if (cardNumber.length !== 19 || !isValidExpiry(expiry) || cvv.length !== 3) {
+    document.getElementById('payment-status').textContent = 'Please fill in all fields correctly.';
+    return;
+  }
+
+  // Displaying payment processing message
+  document.getElementById('payment-status').textContent = 'Processing payment...';
+
+  // Simulate payment processing (replace this with actual payment processing logic)
+  setTimeout(function() {
+    document.getElementById('payment-status').textContent = 'Payment successful!';
+    // Reset form after successful payment
+    document.getElementById('payment-form').reset();
+  }, 2000);
+});
+
+// Function to validate expiry date
+function isValidExpiry(expiry) {
+  // Check if the format is correct (MM/YY)
+  if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+    return false;
+  }
+
+  // Check if the expiry date is in the future
+  var today = new Date();
+  var currentYear = today.getFullYear() % 100; // Get last two digits of the year
+  var currentMonth = today.getMonth() + 1; // January is 0
+  var [expiryMonth, expiryYear] = expiry.split('/');
+  expiryMonth = parseInt(expiryMonth, 10);
+  expiryYear = parseInt(expiryYear, 10);
+  if (expiryYear < currentYear || (expiryYear === currentYear && expiryMonth < currentMonth)) {
+    return false;
+  }
+
+  return true;
+}
+</script>
+</body>
+</html>

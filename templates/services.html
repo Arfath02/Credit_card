@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/lopi.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: #00447c;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the background color */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #payment-status {
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Our Services</h1>
+</header>
+
+<div class="container">
+    <h2>Credit Card Payment</h2>
+    <form action="/process_payment" method="POST" id="payment-form">
+        <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required aria-label="Credit card number" oninput="formatCardNumber(event)">
+        </div>
+        <div class="form-group">
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required aria-label="Expiry date" oninput="formatExpiryDate(event)">
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required aria-label="CVV">
+        </div>
+        <button type="submit" aria-label="Pay Now">Pay Now</button>
+    </form>
+    <div id="payment-status" aria-live="polite"></div>
+</div>
+
+<script>
+    function formatCardNumber(event) {
+        const input = event.target;
+        const value = input.value.replace(/\s/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+        input.value = value;
+    }
+
+    function formatExpiryDate(event) {
+        const input = event.target;
+        const value = input.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            input.value = value.slice(0, 2) + '/' + value.slice(2);
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Bank</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('static/lopi.jpg');
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #00447c;
+            color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: right;
+            margin-right: 20px; /* Decreased margin */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px; /* Adjusted padding */
+            margin: 0 5px; /* Decreased margin */
+            font-weight: bold;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Account Card Styles */
+        .account-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .account-card img {
+            width: 400px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #00447c;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='bank2.png') }}" alt="Bank Logo" width="100">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <h1>Popular Accounts</h1>
+            <div class="account-card">
+                <img src="{{ url_for('static', filename='save.png') }}" alt="Savings Account">
+                <h2>Savings Account</h2>
+                <p>Start saving for your future with our flexible savings account options.</p>
+                <a href="apply.html">Open Account</a>
+            </div>
+
+            <div class="account-card">
+                <img src="{{ url_for('static', filename='checking.png') }}" alt="Checking Account">
+                <h2>Checking Account</h2>
+                <p>Manage your daily transactions conveniently with our checking account.</p>
+                <a href="apply2.html">Open Account</a>
+            </div>
+
+            <div class="account-card">
+                <img src="{{ url_for('static', filename='business.jpg') }}" alt="Business Account">
+                <h2>Business Account</h2>
+                <p>Grow your business with our tailored banking solutions for businesses.</p>
+                <a href="apply4.html">Open Account</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Our Bank. All rights reserved.</p>
+    </footer>
+</body>
+</html>
